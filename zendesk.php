@@ -3,6 +3,7 @@ namespace zendesk;
 define('API_KEY', 'i9TcS5FtJ4hfCnnkBJGmf6eKrt0DnVPBvjKd35lA');
 define('USERNAME', 'fvodden@zmchotels.com');
 define('SUBDOMAIN', 'zmchotels');
+define('ADMINUSER', 'admin');
 
 require_once('class.zendeskapi.php');
 
@@ -72,10 +73,19 @@ function retrieveTopics($forumName){
         $propertyId = intval($pieces[0]);
       }
 
-      $topics[$propertyId] = array(
-        'title' => $t->title,
-        'id' => $t->id
-      );
+      $include = true;
+      if(!isAdmin()){
+        if(strpos($t->body, 'bbh') === false){
+          $include = false;
+        }
+      }
+
+      if($include){
+        $topics[$propertyId] = array(
+          'title' => $t->title,
+          'id' => $t->id
+        );
+      }
     }
   }
 
@@ -83,4 +93,10 @@ function retrieveTopics($forumName){
   return $topics;
 }
 
+function isAdmin(){
+  if(isset($_SERVER['REMOTE_USER']) && $_SERVER['REMOTE_USER'] == ADMINUSER){
+    return true;
+  }
 
+  return false;
+}
