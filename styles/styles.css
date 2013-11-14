@@ -1,0 +1,70 @@
+/** styles.css */
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Tahoma, Arial, "Times New Roman";
+}
+
+body {
+  background-color: #FFD473;
+}
+
+nav {
+  margin: 0 auto;
+  display: block;
+  text-align: left;
+  width: 800px;
+  height: 85px;
+  background: #fff url('../images/logo.png') no-repeat center center;
+  line-height: 85px;
+  padding: 2px 10px;
+}
+
+nav, div.content {
+  border: 2px solid #AFAEAE;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px #000;
+}
+
+a {
+  color: #000;
+}
+
+nav a.back {
+  display: inline-block;
+  background: transparent url('../images/back-btn.png') no-repeat left center;
+  padding-left: 36px;
+  height: 36px;
+  line-height: 36px;
+}
+
+div.content {
+  background-color: #fff;
+  padding: 10px;
+}
+
+div.content h1 {
+  margin: 0 0 5px 0;
+  padding: 0;
+  font-size: 21px;
+}
+
+div.content ul, div.content li {
+  padding: 0;
+  margin: 0;
+}
+
+div.content ul {
+  margin-left: 30px;
+}
+
+li {
+  font-size: 13px;
+}
+
+div.content.center {
+  max-width: 800px;
+  margin: 10px auto;
+}
+
