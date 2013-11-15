@@ -4,6 +4,7 @@ define('API_KEY', 'i9TcS5FtJ4hfCnnkBJGmf6eKrt0DnVPBvjKd35lA');
 define('USERNAME', 'fvodden@zmchotels.com');
 define('SUBDOMAIN', 'zmchotels');
 define('ADMINUSER', 'admin');
+define('ZENDESKURL', 'https://zmchotels.zendesk.com');
 
 require_once('class.zendeskapi.php');
 
@@ -44,7 +45,12 @@ function retrieveArticle($id){
   $results = $api->call(sprintf('/topics/%d', $id),'','GET');
   if(!is_object($results) || !isset($results->topic)) throw new \Exception('Invalid response from Zendesk API');
 
-  return $results->topic;
+  // fix relative resource urls
+  $body =& $results->topic->body;
+  $replaceResult = preg_replace('#src="(?P<path>[a-z0-9\-._~%!$&\'()*+,;=:@/?]*)"#s', 'src="' . ZENDESKURL . '$1"', $body);
+
+  if(!is_null($replaceResult)) $body = $replaceResult;
+  return $results->topic;;
 }
 
 /**
