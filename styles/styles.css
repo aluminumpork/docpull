@@ -21,6 +21,24 @@ nav {
   padding: 2px 10px;
 }
 
+.content h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 11px 0 7px 0;
+  word-wrap: break-word;
+}
+
+.content h3 {
+  margin: 25px 0 7px 0;
+  font-size: 16px;
+}
+
+.content h4 {
+  font-size: 12px;
+  margin: 12px 0 0px 0;
+  padding: 0;
+}
+
 nav, div.content {
   border: 2px solid #AFAEAE;
   border-radius: 10px;
