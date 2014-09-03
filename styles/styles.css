@@ -14,7 +14,7 @@ nav {
   margin: 0 auto;
   display: block;
   text-align: left;
-  width: 800px;
+  width: 1024px;
   height: 85px;
   background: #fff url('../images/logo.png') no-repeat center center;
   line-height: 85px;
@@ -82,7 +82,7 @@ li {
 }
 
 div.content.center {
-  max-width: 800px;
+  max-width: 1024px;
   margin: 10px auto;
 }
 
